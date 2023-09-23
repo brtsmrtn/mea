@@ -2,11 +2,14 @@
   "name": "mea",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://brtsmrtn.github.io/mea",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "eslint": "8.50.0",
@@ -14,5 +17,8 @@
     "next": "13.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   }
 }
