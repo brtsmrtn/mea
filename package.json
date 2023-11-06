@@ -12,11 +12,16 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "@react-spring/parallax": "^9.7.3",
+    "@react-spring/web": "^9.7.3",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
     "next": "13.5.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "node-sass": "^9.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "reactflow": "^11.9.4",
+    "sass": "^1.68.0"
   },
   "devDependencies": {
     "gh-pages": "^6.0.0"
