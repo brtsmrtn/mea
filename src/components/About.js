@@ -11,7 +11,7 @@ export const About = ({open, onOpen}) => {
   return (
     <div className={styles.About}>
       <img
-        src="/img/about.png"
+        src="./img/about.png"
         className={`${styles.icon} ${blink ? styles.blinker : ""} ${
           open ? styles.invert : ""
         }`}
@@ -28,13 +28,13 @@ export const About = ({open, onOpen}) => {
           <div>&nbsp;</div>
           <div>&nbsp;</div>
           <div className={styles.about_os}>
-            <img src="/img/oceanspace.png" />
+            <img src="./img/oceanspace.png" />
           </div>
           <div className={styles.about_oa}>
-            <img src="/img/OA_type_white.png" />
+            <img src="./img/OA_type_white.png" />
           </div>
           <div className={styles.about_ac}>
-            <img src="/img/tba21-academy.png" />
+            <img src="./img/tba21-academy.png" />
           </div>
         </div>
         <div>

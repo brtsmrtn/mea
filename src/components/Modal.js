@@ -27,7 +27,7 @@ export const Modal = ({content, show, bottom, id, width, height, onClose}) => {
                     maxWidth: `${width - 160}px`,
                     maxHeight: `${height - 240}px`,
                   }}
-                  src={`/video/${video}`}
+                  src={`./video/${video}`}
                   controls
                 />
               </div>
@@ -46,7 +46,7 @@ export const Modal = ({content, show, bottom, id, width, height, onClose}) => {
                     maxHeight: `${height - 240}px`,
                   }}
                   preload="true"
-                  src={`/img/${image}`}
+                  src={`./img/${image}`}
                 />
               </div>
             </div>
