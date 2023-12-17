@@ -1,56 +1,39 @@
 import React from "react";
 import styles from "@/components/Modal.module.scss";
 
-export const Modal = ({content, show, bottom, id, width, height, onClose}) => {
+export const Modal = ({
+  content,
+  show,
+  bottom,
+  node,
+  width,
+  height,
+  onClose,
+}) => {
   const renderContent = React.useCallback(
-    (id, content) => {
-      const {type, text, video, image} = content ?? {};
+    (node, content) => {
+      const {type, svg, link} = content ?? {};
+
       switch (type) {
-        case "text":
+        case "svg": {
+          return <div>{svg}</div>;
+        }
+        case "embed": {
           return (
-            <div className={styles.textContainer} key={id}>
+            <div
+              className={`${styles.container} ${styles[node.type]}`}
+              key={node.id}
+            >
               <div className={styles.close} onClick={onClose}>
                 <div />
               </div>
-              <div className={styles.text}>{text}</div>
+              <div
+                className={styles.iframe}
+                dangerouslySetInnerHTML={{__html: link}}
+              />
             </div>
           );
-        case "video":
-          return (
-            <div className={styles.textContainer} key={id}>
-              <div className={styles.close} onClick={onClose}>
-                <div />
-              </div>
-              <div className={styles.video}>
-                <video
-                  style={{
-                    maxWidth: `${width - 160}px`,
-                    maxHeight: `${height - 240}px`,
-                  }}
-                  src={`./video/${video}`}
-                  controls
-                />
-              </div>
-            </div>
-          );
-        case "image":
-          return (
-            <div className={styles.textContainer} key={id}>
-              <div className={styles.close} onClick={onClose}>
-                <div />
-              </div>
-              <div className={styles.image}>
-                <img
-                  style={{
-                    maxWidth: `${width - 160}px`,
-                    maxHeight: `${height - 240}px`,
-                  }}
-                  preload="true"
-                  src={`./img/${image}`}
-                />
-              </div>
-            </div>
-          );
+        }
       }
     },
     [width, height]
@@ -67,7 +50,7 @@ export const Modal = ({content, show, bottom, id, width, height, onClose}) => {
 	height: !show ? 0 : height, */
         }}
       >
-        {content?.map((node) => renderContent(id, node))}
+        {content?.map((item) => renderContent(node, item))}
       </div>
     )
   );
