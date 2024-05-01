@@ -1,16 +1,5 @@
-import {
-  EnthusiasmMeander,
-  EnthusiasmMeanderSub1,
-  EnthusiasmMeanderSub2,
-  EnthusiasmMeanderSub3,
-  EnthusiasmMeanderSub4,
-  EnthusiasmMeanderSub5,
-  GenerosityMeander,
-  Guadalquivir,
-  MeditationMeander,
-  PatienceMeander,
-  SkillfulActionMeander,
-} from "./svgs";
+import {Cloud} from "@/components/Cloud";
+import {Guadalquivir} from "./svgs";
 
 export const initialNodes = [
   {
@@ -25,147 +14,92 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: -150, y: 0},
-  },
-  {
-    id: "B",
-    data: {
-      type: "svg",
-      label: "",
-      content: [
-        {
-          type: "svg",
-          svg: <PatienceMeander />,
-        },
-      ],
-    },
-    position: {x: -230, y: 210},
-  },
-  {
-    id: "C",
-    data: {
-      type: "svg",
-      label: "",
-      content: [
-        {
-          type: "svg",
-          svg: <GenerosityMeander />,
-        },
-      ],
-    },
-    position: {x: 125, y: 300},
+    position: {x: 0, y: 700},
   },
   {
     id: "D",
     data: {
-      type: "svg",
+      type: "cloud",
       label: "",
       content: [
         {
-          type: "svg",
-          svg: <SkillfulActionMeander />,
+          type: "cloud",
+          cloud: <Cloud n={10} vw={2} vh={1} vmin1={20} vmin2={2} />,
         },
       ],
     },
-    position: {x: -375, y: 410},
+    position: {x: -1220, y: -215},
   },
   {
-    id: "E",
+    id: "V",
     data: {
-      type: "svg",
+      type: "cloud",
       label: "",
       content: [
         {
-          type: "svg",
-          svg: <EnthusiasmMeander />,
+          type: "cloud",
+          cloud: <Cloud n={100} vw={5} vh={5} vmin1={20} vmin2={2} />,
+          translate: {x: -1800},
         },
       ],
     },
-    position: {x: 50, y: 710},
+    position: {x: -540, y: 700},
   },
   {
-    id: "F",
+    id: "W",
     data: {
-      type: "svg",
+      type: "cloud",
       label: "",
       content: [
         {
-          type: "svg",
-          svg: <EnthusiasmMeanderSub1 />,
+          type: "cloud",
+          cloud: <Cloud n={100} vw={25} vh={10} vmin1={20} vmin2={18} />,
         },
       ],
     },
-    position: {x: 201, y: 672},
+    position: {x: 150, y: 650},
   },
   {
-    id: "G",
+    id: "X",
     data: {
-      type: "svg",
+      type: "cloud",
       label: "",
       content: [
         {
-          type: "svg",
-          svg: <EnthusiasmMeanderSub2 />,
+          type: "cloud",
+          cloud: <Cloud n={100} vw={5} vh={10} vmin1={20} vmin2={5} />,
         },
       ],
     },
-    position: {x: 415, y: 714},
+    position: {x: 200, y: 150},
   },
   {
-    id: "H",
+    id: "Y",
     data: {
-      type: "svg",
+      type: "cloud",
       label: "",
       content: [
         {
-          type: "svg",
-          svg: <EnthusiasmMeanderSub3 />,
+          type: "cloud",
+          cloud: <Cloud n={100} vw={5} vh={5} vmin1={10} vmin2={5} />,
         },
       ],
     },
-    position: {x: 448, y: 881},
+    position: {x: -250, y: -50},
   },
   {
-    id: "I",
+    id: "Z",
     data: {
-      type: "svg",
+      type: "cloud",
       label: "",
       content: [
         {
-          type: "svg",
-          svg: <EnthusiasmMeanderSub4 />,
+          type: "cloud",
+          cloud: <Cloud n={100} vw={4} vh={2} vmin1={10} vmin2={7} />,
         },
       ],
     },
-    position: {x: 302, y: 1018},
-  },
-  {
-    id: "J",
-    data: {
-      type: "svg",
-      label: "",
-      content: [
-        {
-          type: "svg",
-          svg: <EnthusiasmMeanderSub5 />,
-        },
-      ],
-    },
-    position: {x: 22, y: 890},
-  },
-  {
-    id: "K",
-    data: {
-      type: "svg",
-      label: "",
-      content: [
-        {
-          type: "svg",
-          svg: <MeditationMeander />,
-        },
-      ],
-    },
-    position: {x: -440, y: 800},
+    position: {x: -320, y: 315},
   },
   {
     id: "1",
@@ -174,7 +108,7 @@ export const initialNodes = [
       label: "PATIENCE",
       content: null,
     },
-    position: {x: -110, y: 208},
+    position: {x: -114, y: 202},
   },
   {
     id: "1a",
@@ -188,7 +122,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: -235, y: 198},
+    position: {x: -185, y: 198},
   },
   {
     id: "2",
@@ -197,7 +131,7 @@ export const initialNodes = [
       label: "GENEROSITY",
       content: null,
     },
-    position: {x: 100, y: 365},
+    position: {x: 102, y: 360},
   },
   {
     id: "2a",
@@ -225,7 +159,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 260, y: 300},
+    position: {x: 250, y: 300},
   },
   {
     id: "2c",
@@ -239,7 +173,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 340, y: 363},
+    position: {x: 325, y: 355},
   },
   {
     id: "2d",
@@ -253,7 +187,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 230, y: 395},
+    position: {x: 230, y: 378},
   },
   {
     id: "2e",
@@ -267,7 +201,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 410, y: 508},
+    position: {x: 380, y: 488},
   },
   {
     id: "2f",
@@ -281,7 +215,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 268, y: 560},
+    position: {x: 263, y: 525},
   },
   {
     id: "2g",
@@ -295,7 +229,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 195, y: 475},
+    position: {x: 180, y: 445},
   },
   {
     id: "3",
@@ -304,7 +238,7 @@ export const initialNodes = [
       label: "SKILLFUL ACTION",
       content: null,
     },
-    position: {x: -117, y: 487},
+    position: {x: -118, y: 477},
   },
   {
     id: "3a",
@@ -318,7 +252,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: -245, y: 387},
+    position: {x: -215, y: 394},
   },
   {
     id: "3b",
@@ -332,7 +266,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: -395, y: 430},
+    position: {x: -332, y: 430},
   },
   {
     id: "3c",
@@ -346,7 +280,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: -320, y: 575},
+    position: {x: -275, y: 545},
   },
   {
     id: "4",
@@ -355,7 +289,7 @@ export const initialNodes = [
       label: "ENTHUSIASM",
       content: null,
     },
-    position: {x: 25, y: 715},
+    position: {x: 25, y: 705},
   },
   {
     id: "4a",
@@ -369,13 +303,13 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 245, y: 705},
+    position: {x: 305, y: 673},
   },
   {
     id: "4a1",
     data: {
       type: "enthusiasm",
-      label: "Eduardo Navarro",
+      label: "Isabel Lewis",
       content: [
         {
           type: "embed",
@@ -383,13 +317,13 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 193, y: 685},
+    position: {x: 394, y: 616},
   },
   {
     id: "4a2",
     data: {
       type: "enthusiasm",
-      label: "Isabel Lewis",
+      label: "Lafawndah",
       content: [
         {
           type: "embed",
@@ -397,13 +331,13 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 318, y: 665},
+    position: {x: 448, y: 645},
   },
   {
     id: "4a3",
     data: {
       type: "enthusiasm",
-      label: "Lafawndah",
+      label: "Eduardo Navarro",
       content: [
         {
           type: "embed",
@@ -411,7 +345,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 342, y: 685},
+    position: {x: 422, y: 685},
   },
   {
     id: "4b",
@@ -425,7 +359,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 405, y: 755},
+    position: {x: 180, y: 785},
   },
   {
     id: "4b1",
@@ -439,7 +373,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 485, y: 705},
+    position: {x: 295, y: 745},
   },
   {
     id: "4b2",
@@ -453,7 +387,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 555, y: 735},
+    position: {x: 315, y: 782},
   },
   {
     id: "4b3",
@@ -467,13 +401,13 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 563, y: 795},
+    position: {x: 295, y: 825},
   },
   {
     id: "4c",
     data: {
       type: "enthusiasm",
-      label: "Third Margin Deepest Spring",
+      label: "River Walks trailer",
       content: [
         {
           type: "embed",
@@ -481,94 +415,10 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 490, y: 872},
+    position: {x: 510, y: 842},
   },
   {
     id: "4c1",
-    data: {
-      type: "enthusiasm",
-      label: "Trailer",
-      content: [
-        {
-          type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
-        },
-      ],
-    },
-    position: {x: 590, y: 902},
-  },
-  {
-    id: "4c2",
-    data: {
-      type: "enthusiasm",
-      label: "Curatorial text",
-      content: [
-        {
-          type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
-        },
-      ],
-    },
-    position: {x: 565, y: 992},
-  },
-  {
-    id: "4c3",
-    data: {
-      type: "enthusiasm",
-      label: "Contributors",
-      content: [
-        {
-          type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/389" title="" />',
-        },
-      ],
-    },
-    position: {x: 440, y: 962},
-  },
-  {
-    id: "4d",
-    data: {
-      type: "enthusiasm",
-      label: "River Walks trailer",
-      content: [
-        {
-          type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/386" title="" />',
-        },
-      ],
-    },
-    position: {x: 347, y: 1005},
-  },
-  {
-    id: "4d1",
-    data: {
-      type: "enthusiasm",
-      label: "Elizabeth Gallón Droste",
-      content: [
-        {
-          type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
-        },
-      ],
-    },
-    position: {x: 447, y: 1060},
-  },
-  {
-    id: "4d2",
-    data: {
-      type: "enthusiasm",
-      label: "Francisco Gamero",
-      content: [
-        {
-          type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/392" title="" />',
-        },
-      ],
-    },
-    position: {x: 367, y: 1105},
-  },
-  {
-    id: "4d3",
     data: {
       type: "enthusiasm",
       label: "Cristina Aguilar Porro",
@@ -579,7 +429,91 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 292, y: 1054},
+    position: {x: 634, y: 812},
+  },
+  {
+    id: "4c2",
+    data: {
+      type: "enthusiasm",
+      label: "Elizabeth Gallón Droste",
+      content: [
+        {
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
+        },
+      ],
+    },
+    position: {x: 665, y: 867},
+  },
+  {
+    id: "4c3",
+    data: {
+      type: "enthusiasm",
+      label: "Francisco Gamero",
+      content: [
+        {
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/389" title="" />',
+        },
+      ],
+    },
+    position: {x: 620, y: 902},
+  },
+  {
+    id: "4d",
+    data: {
+      type: "enthusiasm",
+      label: "Talks",
+      content: [
+        {
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/386" title="" />',
+        },
+      ],
+    },
+    position: {x: 368, y: 1025},
+  },
+  {
+    id: "4d1",
+    data: {
+      type: "enthusiasm",
+      label: "Francisco Godoy Vega",
+      content: [
+        {
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
+        },
+      ],
+    },
+    position: {x: 417, y: 1073},
+  },
+  {
+    id: "4d2",
+    data: {
+      type: "enthusiasm",
+      label: "Garcia López Anguita",
+      content: [
+        {
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/392" title="" />',
+        },
+      ],
+    },
+    position: {x: 358, y: 1115},
+  },
+  {
+    id: "4d3",
+    data: {
+      type: "enthusiasm",
+      label: "Juan López Intzín",
+      content: [
+        {
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
+        },
+      ],
+    },
+    position: {x: 280, y: 1134},
   },
   {
     id: "4e",
@@ -593,13 +527,13 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 247, y: 835},
+    position: {x: 450, y: 908},
   },
   {
     id: "4f",
     data: {
       type: "enthusiasm",
-      label: "Talks",
+      label: "Third Margin Deepest Spring",
       content: [
         {
           type: "embed",
@@ -607,13 +541,13 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 68, y: 875},
+    position: {x: 60, y: 845},
   },
   {
     id: "4f1",
     data: {
       type: "enthusiasm",
-      label: "Francisco Godoy Vega",
+      label: "Curatorial text",
       content: [
         {
           type: "embed",
@@ -621,13 +555,13 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 160, y: 915},
+    position: {x: 100, y: 1009},
   },
   {
     id: "4f2",
     data: {
       type: "enthusiasm",
-      label: "Garcia López Anguita",
+      label: "Contributors",
       content: [
         {
           type: "embed",
@@ -635,13 +569,13 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 107, y: 955},
+    position: {x: 32, y: 945},
   },
   {
     id: "4f3",
     data: {
       type: "enthusiasm",
-      label: "Juan López Intzín",
+      label: "Trailer",
       content: [
         {
           type: "embed",
@@ -649,7 +583,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: 19, y: 993},
+    position: {x: 139, y: 972},
   },
   {
     id: "5",
@@ -658,7 +592,7 @@ export const initialNodes = [
       label: "MEDITATION",
       content: null,
     },
-    position: {x: -170, y: 790},
+    position: {x: -175, y: 780},
   },
   {
     id: "5a",
@@ -672,7 +606,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: -400, y: 790},
+    position: {x: -397, y: 780},
   },
   {
     id: "5b",
@@ -686,7 +620,7 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: -445, y: 857},
+    position: {x: -445, y: 847},
   },
   {
     id: "5c",
@@ -700,6 +634,6 @@ export const initialNodes = [
         },
       ],
     },
-    position: {x: -357, y: 947},
+    position: {x: -357, y: 937},
   },
 ];

@@ -1,24 +1,31 @@
 import React from "react";
-import styles from "@/components/Node.module.scss";
+import {Cloud} from "./Cloud";
 
 export function Node(props) {
   const {data, xPos, yPos, id} = props;
-  const {content, label, onSelect, hidden, clicked, type, main, sub} =
+  const {content, label, onSelect, hidden, clicked, type, main, sub, move} =
     data ?? {};
 
   return (
     <div
       id={id}
-      className={`${styles.Node} ${styles[type]} ${
-        styles[main ? "large" : sub ? "micro" : "small"]
-      } ${clicked ? styles.clicked : ""}`}
+      key={id}
+      className={`node ${type} ${main ? "large" : sub ? "micro" : "small"} ${
+        clicked ? "clicked" : ""
+      } ${move ? "move" : ""}`}
       style={{
         visibility: hidden === false ? "visible" : "hidden",
         opacity: hidden === false ? 1 : 0,
       }}
-      onClick={(e) => onSelect(e, {id, type, content})}
+      onClick={(e) =>
+        hidden === false ? onSelect(e, {id, type, content}) : null
+      }
     >
-      <span className={styles[`color${id}`]}>{label}</span>
+      {type !== "cloud" ? (
+        <span className={`color${id}`}>{label}</span>
+      ) : (
+        content[0].cloud
+      )}
       {content?.length && content[0]?.svg && content[0].svg}
     </div>
   );

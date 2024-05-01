@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "@/components/About.module.scss";
 
 export const About = ({open, onOpen}) => {
   const [blink, setBlink] = React.useState(true);
@@ -9,41 +8,39 @@ export const About = ({open, onOpen}) => {
   }, [open]);
 
   return (
-    <div className={styles.About}>
+    <div className="about">
       <img
         src="./img/about.png"
-        className={`${styles.icon} ${blink ? styles.blinker : ""} ${
-          open ? styles.invert : ""
-        }`}
+        className={`icon ${blink ? "blinker" : ""} ${open ? "invert" : ""}`}
         onClick={onOpen}
       />
-      <div className={`${styles.section} ${open ? "" : styles.hidden}`}>
+      <div className={`section ${open ? "" : "hidden"}`}>
         <div>
           <span>
             <strong>XY</strong>
           </span>
         </div>
         <div>
-          <span className={styles.lighter}>About....</span>
+          <span className="lighter">About....</span>
           <div>&nbsp;</div>
           <div>&nbsp;</div>
-          <div className={styles.about_os}>
+          <div className="about_os">
             <img src="./img/oceanspace.png" />
           </div>
-          <div className={styles.about_oa}>
+          <div className="about_oa">
             <img src="./img/OA_type_white.png" />
           </div>
-          <div className={styles.about_ac}>
+          <div className="about_ac">
             <img src="./img/tba21-academy.png" />
           </div>
         </div>
         <div>
           <div>
             <img src="./img/04_SofiaLemosPortraits_Cordoba_220704_LC_HQ-1200x800 (Medium).jpg" />
-            <span className={styles.courtesy}>Sofia Lemos. Photo: XY</span>
+            <span className="courtesy">Sofia Lemos. Photo: XY</span>
             <br />
             <br />
-            <span className={styles.lighter}>
+            <span className="lighter">
               Sofia Lemos is a curator and writer. She is Curator at
               TBA21–Academy, where she leads Meandering. From 2018–2021, she was
               Curator of Public Programmes and Research at Nottingham

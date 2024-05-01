@@ -5,15 +5,15 @@ import ReactFlow, {
   useNodesState,
   useReactFlow,
 } from "reactflow";
-import {AppContext} from "@/context/AppContext";
 import {About} from "@/components/About";
 import {OALogo} from "@/components/OALogo";
 import {Modal} from "@/components/Modal";
 import {initialNodes} from "@/data/nodes";
+import {ReplayIntro} from "@/components/ReplayIntro";
 
 function Flow(props) {
+  const {w, h, ...rest} = props;
   const {setViewport} = useReactFlow();
-  const {screenSize} = React.useContext(AppContext);
 
   const handleTransform = React.useCallback(
     (_, node) => {
@@ -21,8 +21,8 @@ function Flow(props) {
       const {x, y} = position;
       setViewport(
         {
-          x: -x - width / 2 + screenSize.width / 2,
-          y: -y - height / 2 + screenSize.height / 2,
+          x: -x - width / 2 + w / 2,
+          y: -y - height / 2 + h / 2,
           zoom: 1,
         },
         {duration: 800}
@@ -31,23 +31,20 @@ function Flow(props) {
     [setViewport]
   );
 
-  return <ReactFlow {...props} onNodeClick={handleTransform} />;
+  return <ReactFlow {...rest} onNodeClick={handleTransform} />;
 }
 
-const App = () => {
+export const Map = ({width, height, toggleIntro}) => {
   const [show, setShow] = React.useState(null);
   const [node, setNode] = React.useState(null);
   const [displayed, setDisplayed] = React.useState([]);
-
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const nodeTypes = React.useMemo(() => ({default: Node}), []);
-
-  const {screenSize} = React.useContext(AppContext);
-  const {width, height} = screenSize ?? {};
-  const [bottom, setBottom] = React.useState("0px");
+  const [nodes, setNodes] = useNodesState();
+  const nodeTypes = React.useMemo(() => {
+    return {default: Node};
+  }, []);
   const [open, setOpen] = React.useState(false);
+  const [reactFlowInstance, setReactFlowInstance] = React.useState(null);
 
-  React.useEffect(() => setBottom(`${height - 240}px`), [height]);
   const onOpen = React.useCallback(() => setOpen(!open), [open]);
 
   const onSelect = React.useCallback(
@@ -75,6 +72,17 @@ const App = () => {
           const main = node.id.length === 1;
           const sub = node.id.length === 3;
           const inc = displayed.includes(node.id[0]);
+          let move = false;
+          console.log(
+            displayed,
+            node.id,
+            node.id === "V" && displayed.includes("1")
+          );
+          if (node.id === "V" && displayed.includes("5")) move = true;
+          if (node.id === "W" && displayed.includes("4")) move = true;
+          if (node.id === "X" && displayed.includes("2")) move = true;
+          if (node.id === "Y" && displayed.includes("1")) move = true;
+          if (node.id === "Z" && displayed.includes("3")) move = true;
           return {
             ...node,
             data: {
@@ -83,28 +91,42 @@ const App = () => {
               sub,
               hidden: main ? false : !inc,
               clicked: main ? inc : false,
+              move,
               onSelect,
             },
           };
         })
       ),
-    [displayed]
+    [displayed, width, height]
   );
 
+  React.useEffect(() => {
+    if (reactFlowInstance && nodes?.length) {
+      reactFlowInstance.setCenter(width / 3.5, height / 2.5, {
+        duration: 200,
+        zoom: 0.65,
+      });
+    }
+  }, [reactFlowInstance, nodes?.length]);
+
   return (
-    <>
+    <div className="map">
       <ReactFlowProvider>
         <Flow
           nodes={nodes}
           nodeTypes={nodeTypes}
           style={{filter: show ? "blur(3px)" : "unset"}}
-          fitView
+          w={width}
+          h={height}
+          onInit={setReactFlowInstance}
+          /* zoomOnScroll={false}
+          zoomOnPinch={false}
+          zoomOnDoubleClick={false} */
         />
       </ReactFlowProvider>
       <Modal
         content={node?.content}
         show={show}
-        bottom={bottom}
         node={node}
         width={width}
         height={height}
@@ -112,8 +134,7 @@ const App = () => {
       />
       <About open={open} onOpen={onOpen} />
       <OALogo />
-    </>
+      <ReplayIntro toggleIntro={toggleIntro} />
+    </div>
   );
 };
-
-export default App;

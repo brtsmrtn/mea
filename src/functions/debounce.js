@@ -1,4 +1,4 @@
-export function debounce(func, wait = 5, immediate = false) {
+export function debounce(func, wait = 0, immediate = false) {
   let timeout;
   return function () {
     const context = this;

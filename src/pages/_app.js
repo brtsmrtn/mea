@@ -1,7 +1,5 @@
-import "@/styles/globals.scss";
+import "@/styles/app.scss";
 import React from "react";
-import {AppContext} from "@/context/AppContext";
-import useScreenSize from "@/hooks/useScreenSize";
 import localFont from "next/font/local";
 
 const AmareAlta = localFont({
@@ -41,24 +39,18 @@ const RobotoMono = localFont({
   ],
 });
 
-export default function MyApp({Component, pageProps}) {
-  const screenSize = useScreenSize();
-
-  const appContext = {
-    screenSize,
-  };
-  return (
-    <AppContext.Provider value={appContext}>
-      <style jsx global>{`
-        :root {
-          /* ... */
-          --amare-alta: ${AmareAlta.style.fontFamily};
-          --amare-medium: ${AmareMedium.style.fontFamily};
-          --amare-linnea: ${AmareLinnea.style.fontFamily};
-          --roboto-mono: ${RobotoMono.style.fontFamily};
-        }
-      `}</style>
-      <Component {...pageProps} />
-    </AppContext.Provider>
-  );
-}
+const MyApp = ({Component, pageProps}) => (
+  <>
+    <style jsx global>{`
+      :root {
+        /* ... */
+        --amare-alta: ${AmareAlta.style.fontFamily};
+        --amare-medium: ${AmareMedium.style.fontFamily};
+        --amare-linnea: ${AmareLinnea.style.fontFamily};
+        --roboto-mono: ${RobotoMono.style.fontFamily};
+      }
+    `}</style>
+    <Component {...pageProps} />
+  </>
+);
+export default MyApp;
