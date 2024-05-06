@@ -1,8 +1,7 @@
 import React from "react";
-import {Cloud} from "./Cloud";
 
 export function Node(props) {
-  const {data, xPos, yPos, id} = props;
+  const {data, id} = props;
   const {content, label, onSelect, hidden, clicked, type, main, sub, move} =
     data ?? {};
 

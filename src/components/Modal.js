@@ -4,7 +4,7 @@ export const Modal = ({content, show, node, width, height, onClose}) => {
   const renderContent = React.useCallback(
     (node, content) => {
       return (
-        <div className={`container ${node.type}}`} key={node.id}>
+        <div className={`container ${node.type}`} key={node.id}>
           <div className="close" onClick={onClose}>
             <div />
           </div>
@@ -21,7 +21,7 @@ export const Modal = ({content, show, node, width, height, onClose}) => {
   if (!content) return null;
 
   return (
-    <div className="modal" style={{display: !show ? "none" : "block"}}>
+    <div className="modal" style={{display: !show ? "none" : "grid"}}>
       {content?.map((item) => renderContent(node, item))}
     </div>
   );

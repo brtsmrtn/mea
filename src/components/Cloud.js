@@ -1,42 +1,45 @@
 import {cloud} from "@/functions/cloud";
+import {useBrowserDetect} from "@/hooks/useBrowserDetect";
+import useScreenSize from "@/hooks/useScreenSize";
 import React from "react";
 
 export const Cloud = ({
-  n = 100,
   x = 0,
   y = 0,
   vw = 5,
   vh = 5,
-  vmin1 = 20,
-  vmin2 = 2,
+  vmin = 2,
   fromRight = false,
 }) => {
-  const boxShadow = React.useMemo(
-    () => cloud(n, vw, vh, vmin1, vmin2),
-    [n, vw, vh, vmin1, vmin2]
-  );
-  return (
-    <>
-      <svg width="0">
-        <filter id="filter">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency=".01"
-            numOctaves="10"
-          />
-          <feDisplacementMap in="SourceGraphic" scale="240" />
-        </filter>
-      </svg>
-      <div
-        style={{
+  const screenSize = useScreenSize();
+  const {isSafari} = useBrowserDetect();
+  const boxShadow = React.useMemo(() => {
+    const {width, height} = screenSize;
+    const n = width < 600 && width < height ? 50 : 5;
+
+    return cloud(n, vw, vh, vmin);
+  }, [screenSize.width, screenSize.height, vw, vh, vmin]);
+
+  const styles = React.useMemo(() => {
+    return x === 0 || y === 0
+      ? {
+          boxShadow,
+          willChange: "box-shadow",
+        }
+      : isSafari
+      ? {
+          boxShadow,
+          transform: `translate(${
+            !fromRight || (!fromRight && x < 0) ? "" : "-"
+          }${x}px, ${y < 0 ? y : -y}px)`,
+          willChange: "transform",
+        }
+      : {
           boxShadow,
           bottom: y,
-          left: fromRight ? "unset" : x,
-          right: fromRight ? x : "unset",
-          filter: "url(#filter)",
-        }}
-        className="cloud"
-      />
-    </>
-  );
+          left: fromRight ? -x : x,
+          willChange: "left, bottom, box-shadow",
+        };
+  }, [isSafari, x, y, boxShadow, fromRight]);
+  return <div style={styles} className="cloud" />;
 };

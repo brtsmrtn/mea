@@ -6,6 +6,8 @@ import {Map} from "@/components/Map";
 import {useLocalStorage} from "@/hooks/useLocalStorage";
 import {Clouds} from "@/components/Clouds";
 import {Intro} from "@/components/Intro";
+import {CloudBase} from "@/components/CloudBase";
+import {useBrowserDetect} from "@/hooks/useBrowserDetect";
 
 const defaultHSnakeDim = {
   width: 0,
@@ -43,8 +45,6 @@ const thresholds = [
   },
 ];
 
-const debug = false;
-
 export default function App() {
   const screenSize = useScreenSize();
   const {intro, toggleIntro} = useLocalStorage();
@@ -54,6 +54,7 @@ export default function App() {
   const [HSnakeDim, HSetSnakeDim] = React.useState(defaultHSnakeDim);
   const [paused, setPaused] = React.useState(1);
   const [toggleLayout, setToggleLayout] = React.useState(false);
+  const {isSafari} = useBrowserDetect();
   const parallax = React.useRef();
   const screen = React.useRef();
   const wrap = React.useRef();
@@ -111,7 +112,7 @@ export default function App() {
       const scrollY =
         -parallax.current.getBoundingClientRect().y / HSnakeDim.maxHeight -
         transYDef / HSnakeDim.maxHeight;
-      setScrollY(scrollY);
+      setScrollY(Number(rnd(scrollY, 4)));
 
       const validTresholds = thresholds.filter(({name}) => name !== "delim");
 
@@ -160,20 +161,7 @@ export default function App() {
 
   return (
     <>
-      {debug && (
-        <div className={"helper"}>
-          <span>{`scrollY: ${rnd(scrollY)} (~ ${rnd(
-            scrollY * HSnakeDim.maxHeight,
-            4
-          )}px)`}</span>
-          <br />
-          <span>{`Viewport: ${width} x ${height}`}</span>
-          <span>
-            {`Snake: ${rnd(HSnakeDim.width)} x
-  ${rnd(HSnakeDim.height)}`}
-          </span>
-        </div>
-      )}
+      <CloudBase />
       {intro && scrollY <= 0.8 ? (
         <Intro
           scrollY={scrollY}
@@ -188,8 +176,12 @@ export default function App() {
       ) : (
         <Map width={width} height={height} toggleIntro={toggleIntro} />
       )}
-      {scrollY > 0.35 && scrollY < 1.4 && (
-        <Clouds width={width} height={height} scrollY={scrollY} />
+      {(isSafari || (scrollY > 0.35 && scrollY < 1.4)) && (
+        <Clouds
+          width={width}
+          height={height - HSnakeDim.transY}
+          scrollY={scrollY}
+        />
       )}
     </>
   );

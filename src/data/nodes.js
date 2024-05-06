@@ -1,5 +1,5 @@
 import {Cloud} from "@/components/Cloud";
-import {Guadalquivir} from "./svgs";
+import {Riverbed} from "./svgs";
 
 export const initialNodes = [
   {
@@ -10,11 +10,39 @@ export const initialNodes = [
       content: [
         {
           type: "svg",
-          svg: <Guadalquivir />,
+          svg: <Riverbed />,
         },
       ],
     },
-    position: {x: 0, y: 700},
+    position: {x: -750, y: -215},
+  },
+  {
+    id: "B",
+    data: {
+      type: "cloud",
+      label: "",
+      content: [
+        {
+          type: "cloud",
+          cloud: <Cloud vw={5} vh={5} vmin={8} />,
+        },
+      ],
+    },
+    position: {x: -440, y: 850},
+  },
+  {
+    id: "C",
+    data: {
+      type: "cloud",
+      label: "",
+      content: [
+        {
+          type: "cloud",
+          cloud: <Cloud vw={20} vh={30} vmin={8} />,
+        },
+      ],
+    },
+    position: {x: 130, y: 750},
   },
   {
     id: "D",
@@ -24,82 +52,39 @@ export const initialNodes = [
       content: [
         {
           type: "cloud",
-          cloud: <Cloud n={10} vw={2} vh={1} vmin1={20} vmin2={2} />,
+          cloud: <Cloud vw={5} vh={10} vmin={8} />,
         },
       ],
     },
-    position: {x: -1220, y: -215},
+    position: {x: 200, y: 300},
   },
   {
-    id: "V",
+    id: "E",
     data: {
       type: "cloud",
       label: "",
       content: [
         {
           type: "cloud",
-          cloud: <Cloud n={100} vw={5} vh={5} vmin1={20} vmin2={2} />,
-          translate: {x: -1800},
+          cloud: <Cloud vw={5} vh={5} vmin={8} />,
         },
       ],
     },
-    position: {x: -540, y: 700},
+    position: {x: -200, y: 150},
   },
   {
-    id: "W",
+    id: "F",
     data: {
       type: "cloud",
       label: "",
       content: [
         {
           type: "cloud",
-          cloud: <Cloud n={100} vw={25} vh={10} vmin1={20} vmin2={18} />,
+          cloud: <Cloud vw={5} vh={5} vmin={8} />,
         },
       ],
     },
-    position: {x: 150, y: 650},
-  },
-  {
-    id: "X",
-    data: {
-      type: "cloud",
-      label: "",
-      content: [
-        {
-          type: "cloud",
-          cloud: <Cloud n={100} vw={5} vh={10} vmin1={20} vmin2={5} />,
-        },
-      ],
-    },
-    position: {x: 200, y: 150},
-  },
-  {
-    id: "Y",
-    data: {
-      type: "cloud",
-      label: "",
-      content: [
-        {
-          type: "cloud",
-          cloud: <Cloud n={100} vw={5} vh={5} vmin1={10} vmin2={5} />,
-        },
-      ],
-    },
-    position: {x: -250, y: -50},
-  },
-  {
-    id: "Z",
-    data: {
-      type: "cloud",
-      label: "",
-      content: [
-        {
-          type: "cloud",
-          cloud: <Cloud n={100} vw={4} vh={2} vmin1={10} vmin2={7} />,
-        },
-      ],
-    },
-    position: {x: -320, y: 315},
+    position: {x: -250, y: 445},
   },
   {
     id: "1",
@@ -313,11 +298,11 @@ export const initialNodes = [
       content: [
         {
           type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/344" title="" />',
+          link: '<iframe src="https://ocean-archive.org/embed/368" title="" />',
         },
       ],
     },
-    position: {x: 394, y: 616},
+    position: {x: 396, y: 616},
   },
   {
     id: "4a2",
@@ -327,7 +312,7 @@ export const initialNodes = [
       content: [
         {
           type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/368" title="" />',
+          link: '<iframe src="https://ocean-archive.org/embed/369" title="" />',
         },
       ],
     },
@@ -341,7 +326,7 @@ export const initialNodes = [
       content: [
         {
           type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/369" title="" />',
+          link: '<iframe src="https://ocean-archive.org/embed/344" title="" />',
         },
       ],
     },
@@ -411,7 +396,7 @@ export const initialNodes = [
       content: [
         {
           type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/385" title="" />',
+          link: '<iframe src="https://ocean-archive.org/embed/386" title="" />',
         },
       ],
     },
@@ -453,7 +438,7 @@ export const initialNodes = [
       content: [
         {
           type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/389" title="" />',
+          link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
       ],
     },
@@ -467,7 +452,7 @@ export const initialNodes = [
       content: [
         {
           type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/386" title="" />',
+          link: '<iframe src="https://ocean-archive.org/embed/388" title="" />',
         },
       ],
     },
@@ -495,7 +480,7 @@ export const initialNodes = [
       content: [
         {
           type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/392" title="" />',
+          link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
       ],
     },
@@ -537,7 +522,7 @@ export const initialNodes = [
       content: [
         {
           type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/388" title="" />',
+          link: '<iframe src="https://ocean-archive.org/embed/385" title="" />',
         },
       ],
     },
@@ -565,7 +550,7 @@ export const initialNodes = [
       content: [
         {
           type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
+          link: '<iframe src="https://ocean-archive.org/embed/389" title="" />',
         },
       ],
     },

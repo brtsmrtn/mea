@@ -2,6 +2,7 @@ import React from "react";
 import {Guadalquivir} from "@/data/svgs";
 import {useSpring, animated} from "@react-spring/web";
 import {Cue} from "./Cue";
+import {round} from "@/functions/round";
 
 export const Intro = ({
   scrollY,
@@ -13,8 +14,6 @@ export const Intro = ({
   HSnakeDim,
   HhandleSnake,
 }) => {
-  const [lungsIn, setLungsIn] = React.useState(1);
-  const [lungsOut, setLungsOut] = React.useState(0);
   const [HSnakeHeadDim, HSetSnakeHeadDim] = React.useState({
     width: 0,
     height: 0,
@@ -24,22 +23,32 @@ export const Intro = ({
     bottom: 0,
   });
 
-  React.useEffect(() => {
-    setLungsIn(
-      scrollY >= 0.09 && scrollY <= 0.2
-        ? 0.9 + scrollY
-        : scrollY > 0.2 && scrollY <= 0.4
-        ? 0.2 - scrollY
-        : 0
-    );
-    setLungsOut(
-      scrollY >= 0.09 && scrollY <= 0.2
-        ? 0
-        : scrollY > 0.2 && scrollY <= 0.4
-        ? 0.6 + scrollY
-        : 1
-    );
-  }, [scrollY]);
+  const lungsIn = React.useMemo(
+    () =>
+      Number(
+        round(
+          scrollY >= 0.09 && scrollY <= 0.2
+            ? 0.9 + scrollY
+            : scrollY > 0.2 && scrollY <= 0.4
+            ? 0.2 - scrollY
+            : 0
+        )
+      ),
+    [scrollY]
+  );
+  const lungsOut = React.useMemo(
+    () =>
+      Number(
+        round(
+          scrollY >= 0.09 && scrollY <= 0.2
+            ? 0
+            : scrollY > 0.2 && scrollY <= 0.4
+            ? 0.6 + scrollY
+            : 1
+        )
+      ),
+    [scrollY]
+  );
 
   const HhandleSnakeHead = React.useCallback(
     (node) => {
@@ -148,7 +157,9 @@ export const Intro = ({
               willChange: "transform",
             }}
           />
-          <animated.div className="ball" style={{...springs}} />
+          {scrollY < 0.4 && (
+            <animated.div className="ball" style={{...springs}} />
+          )}
         </div>
       </div>
       <Cue />
