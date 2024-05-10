@@ -11,29 +11,11 @@ const AmareAlta = localFont({
     },
   ],
 });
-const AmareMedium = localFont({
-  src: [
-    {
-      path: "./Amare-Medium.woff",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-});
 const AmareLinnea = localFont({
   src: [
     {
       path: "./Amare-Linnea.woff",
       weight: "100",
-      style: "normal",
-    },
-  ],
-});
-const RobotoMono = localFont({
-  src: [
-    {
-      path: "./RobotoMono-Regular.woff",
-      weight: "400",
       style: "normal",
     },
   ],
@@ -45,9 +27,7 @@ const MyApp = ({Component, pageProps}) => (
       :root {
         /* ... */
         --amare-alta: ${AmareAlta.style.fontFamily};
-        --amare-medium: ${AmareMedium.style.fontFamily};
         --amare-linnea: ${AmareLinnea.style.fontFamily};
-        --roboto-mono: ${RobotoMono.style.fontFamily};
       }
     `}</style>
     <Component {...pageProps} />
