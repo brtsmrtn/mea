@@ -7,12 +7,11 @@ export const initialNodes = [
     data: {
       type: "svg",
       label: "",
-      content: [
-        {
+      content:{
           type: "svg",
           svg: <Riverbed />,
         },
-      ],
+      
     },
     position: {x: -750, y: -215},
   },
@@ -21,12 +20,11 @@ export const initialNodes = [
     data: {
       type: "cloud",
       label: "",
-      content: [
-        {
+      content:{
           type: "cloud",
           cloud: <Cloud vw={5} vh={5} vmin={8} />,
         },
-      ],
+      
     },
     position: {x: -440, y: 850},
   },
@@ -35,12 +33,11 @@ export const initialNodes = [
     data: {
       type: "cloud",
       label: "",
-      content: [
-        {
+      content:{
           type: "cloud",
           cloud: <Cloud vw={20} vh={30} vmin={8} />,
         },
-      ],
+      
     },
     position: {x: 130, y: 750},
   },
@@ -49,12 +46,11 @@ export const initialNodes = [
     data: {
       type: "cloud",
       label: "",
-      content: [
-        {
+      content:{
           type: "cloud",
           cloud: <Cloud vw={5} vh={10} vmin={8} />,
         },
-      ],
+      
     },
     position: {x: 200, y: 300},
   },
@@ -63,12 +59,11 @@ export const initialNodes = [
     data: {
       type: "cloud",
       label: "",
-      content: [
-        {
+      content:{
           type: "cloud",
           cloud: <Cloud vw={5} vh={5} vmin={8} />,
         },
-      ],
+      
     },
     position: {x: -200, y: 150},
   },
@@ -77,12 +72,11 @@ export const initialNodes = [
     data: {
       type: "cloud",
       label: "",
-      content: [
-        {
+      content:{
           type: "cloud",
           cloud: <Cloud vw={5} vh={5} vmin={8} />,
         },
-      ],
+      
     },
     position: {x: -250, y: 445},
   },
@@ -90,8 +84,12 @@ export const initialNodes = [
     id: "1",
     data: {
       type: "patience",
-      label: "PATIENCE",
-      content: null,
+      label: "Patience",
+      content:{
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/390" title="" />',
+        },
+      
     },
     position: {x: -114, y: 202},
   },
@@ -100,12 +98,11 @@ export const initialNodes = [
     data: {
       type: "patience",
       label: "Thinking oceanically about more-than-ocean",
-      content: [
-        {
+      content:{
           type: "embed",
-          link: '<iframe src="https://ocean-archive.org/embed/390" title="" />',
+          link: '<iframe src="https://ocean-archive.org/embed/338" title="" />',
         },
-      ],
+      
     },
     position: {x: -185, y: 198},
   },
@@ -113,8 +110,12 @@ export const initialNodes = [
     id: "2",
     data: {
       type: "generosity",
-      label: "GENEROSITY",
-      content: null,
+      label: "Generosity",
+      content:{
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/343" title="" />',
+        },
+      
     },
     position: {x: 102, y: 360},
   },
@@ -123,12 +124,11 @@ export const initialNodes = [
     data: {
       type: "generosity",
       label: "What is a river?",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/350" title="" />',
         },
-      ],
+      
     },
     position: {x: 160, y: 287},
   },
@@ -137,12 +137,11 @@ export const initialNodes = [
     data: {
       type: "generosity",
       label: "Anatomy of a river",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/349" title="" />',
         },
-      ],
+      
     },
     position: {x: 250, y: 300},
   },
@@ -151,12 +150,11 @@ export const initialNodes = [
     data: {
       type: "generosity",
       label: "River services",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/378" title="" />',
         },
-      ],
+      
     },
     position: {x: 325, y: 355},
   },
@@ -165,12 +163,11 @@ export const initialNodes = [
     data: {
       type: "generosity",
       label: "Riverspeak",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/379" title="" />',
         },
-      ],
+      
     },
     position: {x: 230, y: 378},
   },
@@ -179,12 +176,11 @@ export const initialNodes = [
     data: {
       type: "generosity",
       label: "Flowing bibliography",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: 380, y: 488},
   },
@@ -193,12 +189,11 @@ export const initialNodes = [
     data: {
       type: "generosity",
       label: "A river's right to flow",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/380" title="" />',
         },
-      ],
+      
     },
     position: {x: 263, y: 525},
   },
@@ -207,12 +202,11 @@ export const initialNodes = [
     data: {
       type: "generosity",
       label: "Guadalquivir (2022–2024)",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/381" title="" />',
         },
-      ],
+      
     },
     position: {x: 180, y: 445},
   },
@@ -220,8 +214,12 @@ export const initialNodes = [
     id: "3",
     data: {
       type: "action",
-      label: "SKILLFUL ACTION",
-      content: null,
+      label: "Skillful action",
+      content:{
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/342" title="" />',
+        },
+      
     },
     position: {x: -118, y: 477},
   },
@@ -230,12 +228,11 @@ export const initialNodes = [
     data: {
       type: "action",
       label: "Isabel Lewis",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/368" title="" />',
         },
-      ],
+      
     },
     position: {x: -215, y: 394},
   },
@@ -244,12 +241,11 @@ export const initialNodes = [
     data: {
       type: "action",
       label: "Eduardo Navarro",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/344" title="" />',
         },
-      ],
+      
     },
     position: {x: -332, y: 430},
   },
@@ -258,12 +254,11 @@ export const initialNodes = [
     data: {
       type: "action",
       label: "Lafawndah",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/369" title="" />',
         },
-      ],
+      
     },
     position: {x: -275, y: 545},
   },
@@ -271,8 +266,12 @@ export const initialNodes = [
     id: "4",
     data: {
       type: "enthusiasm",
-      label: "ENTHUSIASM",
-      content: null,
+      label: "Enthusiasm",
+      content:{
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/341" title="" />',
+        },
+      
     },
     position: {x: 25, y: 705},
   },
@@ -281,12 +280,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "The Journying Stream",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/382" title="" />',
         },
-      ],
+      
     },
     position: {x: 305, y: 673},
   },
@@ -295,12 +293,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Isabel Lewis",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/368" title="" />',
         },
-      ],
+      
     },
     position: {x: 396, y: 616},
   },
@@ -309,12 +306,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Lafawndah",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/369" title="" />',
         },
-      ],
+      
     },
     position: {x: 448, y: 645},
   },
@@ -323,12 +319,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Eduardo Navarro",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/344" title="" />',
         },
-      ],
+      
     },
     position: {x: 422, y: 685},
   },
@@ -337,12 +332,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "An Ocean Without Shore",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/383" title="" />',
         },
-      ],
+      
     },
     position: {x: 180, y: 785},
   },
@@ -351,12 +345,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Trailer",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/3355" title="" />',
         },
-      ],
+      
     },
     position: {x: 295, y: 745},
   },
@@ -365,12 +358,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Curatorial text",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: 315, y: 782},
   },
@@ -379,12 +371,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Contributors",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/384" title="" />',
         },
-      ],
+      
     },
     position: {x: 295, y: 825},
   },
@@ -393,12 +384,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "River Walks trailer",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/386" title="" />',
         },
-      ],
+      
     },
     position: {x: 510, y: 842},
   },
@@ -407,12 +397,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Cristina Aguilar Porro",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: 634, y: 812},
   },
@@ -421,12 +410,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Elizabeth Gallón Droste",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: 665, y: 867},
   },
@@ -435,12 +423,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Francisco Gamero",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: 620, y: 902},
   },
@@ -449,12 +436,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Talks",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/388" title="" />',
         },
-      ],
+      
     },
     position: {x: 368, y: 1025},
   },
@@ -463,12 +449,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Francisco Godoy Vega",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: 417, y: 1073},
   },
@@ -477,12 +462,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Garcia López Anguita",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: 358, y: 1115},
   },
@@ -491,12 +475,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Juan López Intzín",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: 280, y: 1134},
   },
@@ -505,12 +488,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Communal meals",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/387" title="" />',
         },
-      ],
+      
     },
     position: {x: 450, y: 908},
   },
@@ -519,12 +501,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Third Margin Deepest Spring",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/385" title="" />',
         },
-      ],
+      
     },
     position: {x: 60, y: 845},
   },
@@ -533,12 +514,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Curatorial text",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: 100, y: 1009},
   },
@@ -547,12 +527,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Contributors",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/389" title="" />',
         },
-      ],
+      
     },
     position: {x: 32, y: 945},
   },
@@ -561,12 +540,11 @@ export const initialNodes = [
     data: {
       type: "enthusiasm",
       label: "Trailer",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: 139, y: 972},
   },
@@ -574,8 +552,12 @@ export const initialNodes = [
     id: "5",
     data: {
       type: "meditation",
-      label: "MEDITATION",
-      content: null,
+      label: "Meditation",
+      content:{
+          type: "embed",
+          link: '<iframe src="https://ocean-archive.org/embed/340" title="" />',
+        },
+      
     },
     position: {x: -175, y: 780},
   },
@@ -584,12 +566,11 @@ export const initialNodes = [
     data: {
       type: "meditation",
       label: "Ocean Breath",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/10000" title="" />',
         },
-      ],
+      
     },
     position: {x: -397, y: 780},
   },
@@ -598,12 +579,11 @@ export const initialNodes = [
     data: {
       type: "meditation",
       label: "Eduardo Navarro Riverbed meditation",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/344" title="" />',
         },
-      ],
+      
     },
     position: {x: -445, y: 847},
   },
@@ -612,12 +592,11 @@ export const initialNodes = [
     data: {
       type: "meditation",
       label: "Sally Fernaux Barleycorn",
-      content: [
-        {
+      content:{
           type: "embed",
           link: '<iframe src="https://ocean-archive.org/embed/377" title="" />',
         },
-      ],
+      
     },
     position: {x: -357, y: 937},
   },

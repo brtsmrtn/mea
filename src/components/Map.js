@@ -28,9 +28,10 @@ function Flow(props) {
 }
 
 export const Map = ({width, height, toggleIntro}) => {
-  const [show, setShow] = React.useState(null);
   const [node, setNode] = React.useState(null);
+  const [displayed_delay, setDisplayed_Delay] = React.useState([]);
   const [displayed, setDisplayed] = React.useState([]);
+  const [blur, setBlur] = React.useState(false);
   const nodeTypes = React.useMemo(() => {
     return {default: Node};
   }, []);
@@ -40,22 +41,24 @@ export const Map = ({width, height, toggleIntro}) => {
   const onOpen = React.useCallback(() => setOpen(!open), [open]);
 
   const onSelect = React.useCallback(
-    (e, node) => {
-      if (e) e.preventDefault();
-      const {id} = node ?? {};
-      if (displayed.includes(id)) return;
-
-      if (id.length === 1) {
-        setDisplayed([...displayed, id]);
-      }
-      setNode(node);
+    (id) => {
+      if (id.length === 1) setDisplayed([...displayed, id]);
+      setNode(initialNodes.find((n) => n.id === id).id);
     },
-    [displayed]
+    [initialNodes, displayed]
   );
 
   React.useEffect(() => {
-    setShow(!node?.content ? false : !show);
-  }, [node]);
+    if (!node || node?.length > 1 || displayed_delay.includes(node)) {
+      setBlur(!node ? false : true);
+    } else {
+      const timer = setTimeout(() => {
+        setBlur(true);
+        setDisplayed_Delay([...displayed_delay, node]);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [node, displayed_delay]);
 
   const nodes = React.useMemo(
     () =>
@@ -83,7 +86,7 @@ export const Map = ({width, height, toggleIntro}) => {
           },
         };
       }),
-    [displayed, width, height]
+    [initialNodes, displayed, width, height]
   );
 
   React.useEffect(() => {
@@ -106,7 +109,7 @@ export const Map = ({width, height, toggleIntro}) => {
         <Flow
           nodes={nodes}
           nodeTypes={nodeTypes}
-          style={{filter: show ? "blur(3px)" : "unset"}}
+          className={blur ? "blur" : ""}
           onInit={setReactFlowInstance}
           w={width}
           h={height}
@@ -115,12 +118,11 @@ export const Map = ({width, height, toggleIntro}) => {
         />
       </ReactFlowProvider>
       <Modal
-        content={node?.content}
-        show={show}
-        node={node}
+        nodes={node ? nodes.filter((n) => n.id[0] === node[0]) : []}
+        active={node}
+        onSelect={setNode}
         width={width}
         height={height}
-        onClose={setNode}
       />
       <About open={open} onOpen={onOpen} />
       <OALogo />

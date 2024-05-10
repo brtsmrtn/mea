@@ -16,16 +16,14 @@ export function Node(props) {
         visibility: hidden === false ? "visible" : "hidden",
         opacity: hidden === false ? 1 : 0,
       }}
-      onClick={(e) =>
-        hidden === false ? onSelect(e, {id, type, content}) : null
-      }
+      onClick={() => (hidden === false ? onSelect(id) : null)}
     >
       {type !== "cloud" ? (
         <span className={`color${id}`}>{label}</span>
       ) : (
-        content[0].cloud
+        content.cloud
       )}
-      {content?.length && content[0]?.svg && content[0].svg}
+      {content?.svg && content.svg}
     </div>
   );
 }
