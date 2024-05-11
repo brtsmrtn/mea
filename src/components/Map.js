@@ -27,7 +27,7 @@ function Flow(props) {
   return <ReactFlow {...rest} onNodeClick={handleTransform} />;
 }
 
-export const Map = ({width, height, toggleIntro}) => {
+export const Map = ({width, height, scrollY, toggleIntro}) => {
   const [node, setNode] = React.useState(null);
   const [displayed_delay, setDisplayed_Delay] = React.useState([]);
   const [displayed, setDisplayed] = React.useState([]);
@@ -104,29 +104,31 @@ export const Map = ({width, height, toggleIntro}) => {
   }, [reactFlowInstance, width, height]);
 
   return (
-    <div className="map">
-      <ReactFlowProvider>
-        <Flow
-          nodes={nodes}
-          nodeTypes={nodeTypes}
-          className={blur ? "blur" : ""}
-          onInit={setReactFlowInstance}
-          w={width}
-          h={height}
-          minZoom={0.6}
-          maxZoom={2}
+    (scrollY >= 1.3 || scrollY === 0) && (
+      <div className="map">
+        <ReactFlowProvider>
+          <Flow
+            nodes={nodes}
+            nodeTypes={nodeTypes}
+            className={blur ? "blur" : ""}
+            onInit={setReactFlowInstance}
+            w={width}
+            h={height}
+            minZoom={0.6}
+            maxZoom={2}
+          />
+        </ReactFlowProvider>
+        <Modal
+          nodes={node ? nodes.filter((n) => n.id[0] === node[0]) : []}
+          active={node}
+          onSelect={setNode}
+          width={width}
+          height={height}
         />
-      </ReactFlowProvider>
-      <Modal
-        nodes={node ? nodes.filter((n) => n.id[0] === node[0]) : []}
-        active={node}
-        onSelect={setNode}
-        width={width}
-        height={height}
-      />
-      <About open={open} onOpen={onOpen} />
-      <OALogo />
-      <ReplayIntro toggleIntro={toggleIntro} />
-    </div>
+        <About open={open} onOpen={onOpen} />
+        <OALogo />
+        <ReplayIntro toggleIntro={toggleIntro} />
+      </div>
+    )
   );
 };

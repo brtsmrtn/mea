@@ -1,57 +1,35 @@
-import {round} from "@/functions/round";
 import {Cloud} from "./Cloud";
-import {useBrowserDetect} from "@/hooks/useBrowserDetect";
 
 export const Clouds = ({width, height, scrollY}) => {
-  const {isSafari} = useBrowserDetect();
   if (!width) return;
   if (!height) return;
-  if (!scrollY) return;
+
+  const portraitMode = width < height;
   return (
     <div className="clouds">
       <Cloud
-        x={
-          isSafari ? -200 : Number(round(-2.5 * width + scrollY * width * 6, 2))
-        }
-        y={
-          isSafari
-            ? 1200
-            : Number(round(-height / 5 + (5 * height * scrollY) / 4, 2))
-        }
-        vw={5}
-        vh={5}
-        vmin={2}
-        fromRight
+        x={(portraitMode ? 2 : 3) * width - scrollY * width * 6}
+        y={(portraitMode ? 0.9 : 0.3) * height - 3.5 * height * scrollY}
+        width={width < height ? "250vw" : "250vw"}
+        image="cloud-four.png"
       />
       <Cloud
-        x={Number(round(-3.5 * width + scrollY * width * 7, 2))}
-        y={Number(round(height * scrollY, 2))}
-        vw={5}
-        vh={25}
-        vmin={6}
+        x={scrollY * width * 6 - 3 * width}
+        y={18 * height - 35 * height * scrollY}
+        width={width < height ? "100vw" : "50vw"}
+        image="cloud-five.png"
       />
       <Cloud
-        x={Number(round(-2.5 * width + scrollY * width * 6, 2))}
-        y={Number(round(height * 2 * scrollY, 2))}
-        vw={isSafari ? 50 : 120}
-        vh={isSafari ? 35 : 70}
-        vmin={isSafari ? 12 : 3}
-        fromRight={isSafari ? false : true}
+        x={scrollY * width * 4 - 3 * width}
+        y={-30 * height * scrollY - height * -15.2}
+        width={width < height ? "300vw" : "150vw"}
+        image="cloud-three.png"
       />
       <Cloud
-        x={Number(round(-4.5 * width + scrollY * width * 7, 2))}
-        y={Number(round(height * scrollY, 2))}
-        vw={isSafari ? 20 : 50}
-        vh={isSafari ? 40 : 50}
-        vmin={isSafari ? 12 : 30}
-      />
-      <Cloud
-        x={Number(round(-6 * width + scrollY * width * 8, 2))}
-        y={Number(round(height * scrollY, 2))}
-        vw={isSafari ? 50 : 400}
-        vh={isSafari ? 20 : 50}
-        vmin={isSafari ? 12 : 80}
-        fromRight={isSafari ? false : true}
+        x={6 * width - scrollY * width * 12}
+        y={(portraitMode ? 4 : -1.6) * height * scrollY - height * 3.8}
+        width={width < height ? "800vw" : "1000vw"}
+        image="cloud-three.png"
       />
     </div>
   );

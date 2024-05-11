@@ -1,3 +1,4 @@
 export function round(n, dec = 2) {
-  return n?.toFixed(dec);
+  const p = Math.pow(10, dec);
+  return Math.round(n * p) / p;
 }

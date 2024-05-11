@@ -2,7 +2,7 @@ import React from "react";
 import {Guadalquivir} from "@/data/svgs";
 import {useSpring, animated} from "@react-spring/web";
 import {Cue} from "./Cue";
-import {round} from "@/functions/round";
+import {Clouds} from "./Clouds";
 
 export const Intro = ({
   scrollY,
@@ -25,28 +25,20 @@ export const Intro = ({
 
   const lungsIn = React.useMemo(
     () =>
-      Number(
-        round(
-          scrollY >= 0.09 && scrollY <= 0.2
-            ? 0.9 + scrollY
-            : scrollY > 0.2 && scrollY <= 0.4
-            ? 0.2 - scrollY
-            : 0
-        )
-      ),
+      scrollY >= 0.09 && scrollY <= 0.2
+        ? 0.8 + scrollY
+        : scrollY > 0.2 && scrollY <= 0.4
+        ? 0.4 - scrollY
+        : 0,
     [scrollY]
   );
   const lungsOut = React.useMemo(
     () =>
-      Number(
-        round(
-          scrollY >= 0.09 && scrollY <= 0.2
-            ? 0
-            : scrollY > 0.2 && scrollY <= 0.4
-            ? 0.6 + scrollY
-            : 1
-        )
-      ),
+      scrollY >= 0.09 && scrollY <= 0.2
+        ? 0
+        : scrollY > 0.2 && scrollY <= 0.4
+        ? 0.6 + scrollY
+        : 1,
     [scrollY]
   );
 
@@ -127,11 +119,13 @@ export const Intro = ({
         width: "2.5vw",
         left: `${x * width}px`,
         top: `${y * height}px`,
+        willChange: "left, top",
       },
       to: {
         width: "1.875vw",
         left: `${x * width + 8}px`,
         top: `${y * height + 8}px`,
+        willChange: "left, top",
       },
     };
   }, [scrollY, width, height, HSnakeHeadDim.width]);

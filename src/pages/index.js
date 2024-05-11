@@ -1,13 +1,10 @@
 import React from "react";
-import {debounce as de} from "@/functions/debounce";
-import {round as rnd} from "@/functions/round";
+import {round} from "@/functions/round";
 import useScreenSize from "@/hooks/useScreenSize";
 import {Map} from "@/components/Map";
 import {useLocalStorage} from "@/hooks/useLocalStorage";
 import {Clouds} from "@/components/Clouds";
 import {Intro} from "@/components/Intro";
-import {CloudBase} from "@/components/CloudBase";
-import {useBrowserDetect} from "@/hooks/useBrowserDetect";
 
 const defaultHSnakeDim = {
   width: 0,
@@ -54,7 +51,6 @@ export default function App() {
   const [HSnakeDim, HSetSnakeDim] = React.useState(defaultHSnakeDim);
   const [paused, setPaused] = React.useState(1);
   const [toggleLayout, setToggleLayout] = React.useState(false);
-  const {isSafari} = useBrowserDetect();
   const parallax = React.useRef();
   const screen = React.useRef();
   const wrap = React.useRef();
@@ -108,11 +104,10 @@ export default function App() {
       if (!HSnakeDim.maxHeight) return;
 
       const transYDef = (HSnakeDim.maxHeight * HSnakeDim.transY) / 100;
-
       const scrollY =
         -parallax.current.getBoundingClientRect().y / HSnakeDim.maxHeight -
         transYDef / HSnakeDim.maxHeight;
-      setScrollY(Number(rnd(scrollY, 4)));
+      setScrollY(round(scrollY, 4));
 
       const validTresholds = thresholds.filter(({name}) => name !== "delim");
 
@@ -132,16 +127,16 @@ export default function App() {
     };
 
     const {current} = wrap;
-    current?.addEventListener("scroll", de(handleWheelEvent));
+    current?.addEventListener("scroll", handleWheelEvent);
     return () => {
-      current?.removeEventListener("scroll", de(handleWheelEvent));
+      current?.removeEventListener("scroll", handleWheelEvent);
     };
   }, [HSnakeDim.maxHeight, wrap?.current, parallax?.current]);
 
   React.useEffect(() => {
     if (scrollY > 0.8) {
       setToggleLayout(true);
-      setPaused(scrollY > 1.4 ? 0 : rnd((1.4 - rnd(scrollY, 1)) * 10, 0));
+      setPaused(scrollY > 1.4 ? 0 : round((1.4 - round(scrollY, 1)) * 10, 0));
       toggleIntro(false);
     }
   }, [scrollY]);
@@ -161,7 +156,6 @@ export default function App() {
 
   return (
     <>
-      <CloudBase />
       {intro && scrollY <= 0.8 ? (
         <Intro
           scrollY={scrollY}
@@ -174,9 +168,14 @@ export default function App() {
           HhandleSnake={HhandleSnake}
         />
       ) : (
-        <Map width={width} height={height} toggleIntro={toggleIntro} />
+        <Map
+          width={width}
+          height={height}
+          scrollY={scrollY}
+          toggleIntro={toggleIntro}
+        />
       )}
-      {(isSafari || (scrollY > 0.35 && scrollY < 1.4)) && (
+      {scrollY > 0.35 && scrollY < 1.3 && (
         <Clouds
           width={width}
           height={height - HSnakeDim.transY}
